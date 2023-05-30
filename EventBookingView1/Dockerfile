@@ -15,6 +15,6 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=builder /ang23/dist/eventbookingview1 .
+COPY --from=builder /ang23/dist/EventBookingView1 .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
