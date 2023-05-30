@@ -1,0 +1,10 @@
+.table{
+  position: relative;
+  top: 100px;
+  width: 110%;
+  text-align: center;
+}
+
+th{
+  color: #a52a2a;
+}

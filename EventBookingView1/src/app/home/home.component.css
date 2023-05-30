@@ -1,0 +1,115 @@
+*{
+  padding: 0%;
+  margin: 0%;
+    box-sizing: border-box;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color:  rgb(113 45 45);
+  color: white;
+}
+
+.container{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.home{
+  width: 100%;
+}
+
+.home>img{
+  width: 110.7%;
+  height: 115vh;
+}
+
+.home>h2{
+  position: absolute;
+  top: 50%;
+  left: 13%;
+  color:white;
+  text-shadow: 5px 2px blue;
+  font-size: xx-large;
+  font-style: italic;
+}
+.register{
+  position: absolute;
+  top:80px;
+  right: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+nav {
+  display: flex;
+  background-color: brown;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.main{
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.navbar-header{
+  text-align: center;
+  margin-top: 21px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;
+}
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 25px;
+}
+
+.links {
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  color: white;
+}
+#sidebar
+{
+  width: 20%;
+
+}
+section{
+  display: flex;
+  width: 100%;
+}
+
+.sidebar{
+  width: 20%;
+}
+
+.postbody{
+  margin-left: 10%;
+  width: 80%;
+}
+
+.contact{
+  color: white;
+  font-size: 15px;
+  margin-right:15px ;
+}

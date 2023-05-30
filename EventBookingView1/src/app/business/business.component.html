@@ -1,0 +1,90 @@
+<!---------------------------- Buisness Register ---------------------------->
+<div *ngIf=!show>
+  <div class="main" *ngIf=!status>
+    <div mat-dialog-title >
+      <h1>Create Bussiness</h1>
+    </div>
+    <form [formGroup]="bussinessForm"  (ngSubmit)="saveBusiness()" enctype="multipart/form-data">
+      <div mat-dialog-content class="content">
+        <div class="row mt-12">
+          <mat-form-field appearance="outline" class="col-md-6">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="businessName">
+            <mat-error *ngIf="bussinessForm.controls['businessName'].hasError('required')">Business Name is required</mat-error>
+          </mat-form-field>
+          <div class="col-md-6">
+            <input class="form-control form-control-lg" id="formFileLg" type="file" name="file" (change)="onFileChange($event)">
+          </div>
+        </div>
+        <div class="row mt-12">
+          <mat-form-field appearance="outline" class="col-md-4">
+            <mat-label>Select State</mat-label>
+            <mat-select [(ngModel)]="stateId" matInput formControlName="stateId" >
+              <mat-option  *ngFor="let state of getState()" value={{state.stateId}}>{{state.stateName}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="bussinessForm.controls['stateId'].hasError('required')">
+              Please select an option.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-md-4">
+            <mat-label>Select City</mat-label>
+            <mat-select matInput formControlName="cityId">
+              <mat-option  *ngFor="let city of getCity()" value={{city.cityId}}>{{city.cityName}}</mat-option>  </mat-select>
+            <mat-error *ngIf="bussinessForm.controls['cityId'].hasError('required')">
+              Please select an option.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-md-4">
+            <mat-label>Pincode</mat-label>
+            <input matInput formControlName="pincode" >
+          <mat-error *ngIf="bussinessForm.controls['pincode'].hasError('required')">Pincode is required</mat-error>
+          <mat-error *ngIf="bussinessForm.controls['pincode'].hasError('minlength')">Pincode must be 6 digits long</mat-error>
+          <mat-error *ngIf="bussinessForm.controls['pincode'].hasError('maxlength')">Pincode must be 6 digits long</mat-error>
+          <mat-error *ngIf="bussinessForm.controls['pincode'].hasError('pattern')">Pincode must contain only digits</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row mt-12">
+          <mat-form-field appearance="outline" class="col-md-12 " >
+            <mat-label> Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-error *ngIf="bussinessForm.controls['description'].hasError('required')">Business Description is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-raised-button type="reset">Reset</button>
+        <button mat-raised-button color="primary" type="submit">save</button>
+        <button mat-raised-button (click)="back()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ------------------------------------  Profile Of Business -------------------------------------------------- -->
+<div *ngIf=show>
+  <div class="background">
+    <img src="../../assets/images/background1.jpeg" alt="" id="logo" height="300px" width="137.5%">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="profile">
+        <div class="avatar">
+          <img src="{{imagePath}}" alt="Profile Image" class="img-raised rounded-circle img-fluid">
+        </div>
+        <div class="details">
+            <h1>{{profileBusiness!.businessName}} <button mat-icon-button aria-label="Example icon button with a home icon">
+               <button mat-icon-button aria-label="Example icon button with a home icon" (click)="editBusiness()">
+                <mat-icon class="edit">edit</mat-icon>
+              </button>
+            </button></h1>
+            <h2>{{city!.cityName}}</h2>
+            <p>{{profileBusiness!.description}}</p>
+        </div>
+        <div class="act" *ngIf=(isActive(profileBusiness?.businessId))>
+          <p>Your Business is not visible to users !!</p>
+          <h5>You are Inactivated by Admin</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

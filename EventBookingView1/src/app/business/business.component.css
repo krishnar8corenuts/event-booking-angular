@@ -1,0 +1,91 @@
+button{
+  margin: 5px;
+}
+.form-control{
+  position: relative;
+  top: 4px;
+}
+
+/* Business Profile CSS */
+.nav
+{
+  background-color: rgb(113, 45, 45);
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.background{
+  position: relative;
+  top: 0;
+  left: -90px;
+}
+.container
+{
+  position: relative;
+  top:-70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270px;
+}
+.avatar
+{
+width: 200px;
+height: 200px;
+margin: 0 auto ;
+margin-top: 0px;
+background-color:rgb(78, 66, 66);
+border-radius: 100%;
+position: relative;
+bottom: 90px;
+}
+
+.profile{
+  position: relative;
+  left: 50px;
+background-color:whitesmoke;
+margin-bottom: 100px;
+height: 350px;
+margin-top: 150px;
+width: 985px;
+}
+.details>h1{
+  text-align: center;
+  position: relative;
+  top: -80px;
+  color: brown;
+}
+.details>p{
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  top: -70px;
+}
+.details>h2{
+  position: relative;
+  top: -75px;
+  text-align: center;
+  color: brown;
+  font-weight: 500;
+}
+#logo{
+  object-fit: cover;
+}
+.details>h1>button{
+  text-align: center;
+  position: relative;
+  top: -5px;
+}
+
+.img-raised{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.act>h5,.act>p{
+  text-align: center;
+  color: red;
+}

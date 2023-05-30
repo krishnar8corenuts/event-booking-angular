@@ -1,0 +1,23 @@
+<section>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let post of getPost()">
+      <mat-card class="example-card">
+        <mat-card-header style="margin-bottom: 0.5rem;flex-direction:column">
+              <mat-card-title-group style="width: 100%;">
+
+                <mat-card-title class="business"><img mat-card-sm-image style="width: 50px;
+                  height: 50px;
+                  border-radius: 50%;" src="{{post.businessImagePath}}">  {{post.businessName}}</mat-card-title>
+
+              </mat-card-title-group>
+        </mat-card-header>
+        <img mat-card-image src="{{post.imagePath}}" alt="" height="300px" width="280px" style="width: 100%;margin: 0px;border-radius: 5px;height: 40vh;">
+        <mat-card-content class="description">
+          <p>
+            {{ post.description | slice:0:100 }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

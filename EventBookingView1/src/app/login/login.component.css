@@ -1,0 +1,91 @@
+h3{
+  color: antiquewhite;
+} */
+.login{
+  position: relative;
+  top: 100px;
+  left: 50px;
+}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  background-color: #f1f1f17d;
+  padding: 16px;
+  border-radius: 8px;
+  height: 100%;
+  width: 60vh;
+  position: relative;
+  top: 5rem;
+}
+
+/* Full-width input fields */
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
+
+}
+
+input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+
+}
+.hello{
+  padding-top: 20px;
+  text-align: center;
+
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+
+}
+.container .signin{
+  margin-top: -300px;
+}
+
+/* Set a style for the submit/register button */
+
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+.login{
+  display: flex;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+button{
+  margin-left: 60px;
+
+  position: relative;
+  width: 80px;
+left:60px;
+}
+.swal2-container.swal2-center>.swal2-popup
+{
+  width: 42%;
+  height: 80%;
+}
+
+.text{
+  text-align: center;
+}

@@ -1,0 +1,104 @@
+<!---------------------------------- For Planner ----------------------------------------->
+
+<div id="sidebar" *ngIf="role=='planner'">
+  <!--Main Navigation-->
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a
+            routerLink="/planner/{{id}}/bussiness"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Business'==selectedCategory" (click)="Category('Business')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Business</span></a>
+          <a
+            href
+            routerLink="/planner/{{id}}/services"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Services'==selectedCategory" (click)="Category('Services')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Services</span></a
+          >
+          <a
+            href
+            routerLink="/planner/{{id}}/post"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Post'==selectedCategory" (click)="Category('Post')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i><span>Post</span></a
+          >
+          <a
+            href
+            routerLink="/planner/{{id}}/order"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Orders'==selectedCategory" (click)="Category('Orders')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i><span>Orders</span></a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  </header>
+</div>
+
+<!---------------------------------- For Admin ----------------------------------------->
+
+<div id="sidebar" *ngIf="role=='admin'">
+  <!--Main Navigation-->
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a
+            routerLink="/admin/request"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Request'==selectedCategory" (click)="Category('Request')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Request</span></a>
+            <a
+            routerLink="/admin/planner"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Planner'==selectedCategory" (click)="Category('Planner')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Planner</span></a>
+            <a
+            routerLink="/admin/booking"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Booking'==selectedCategory" (click)="Category('Booking')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Booking</span></a>
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  </header>
+</div>
+
+<!-- -------------------------------- For user ----------------------------------------->
+
+<div id="sidebar" *ngIf="role=='user'">
+  <!--Main Navigation-->
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a
+            routerLink="/user/{{id}}/home"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Home'==selectedCategory" (click)="Category('Home')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Home</span></a>
+          <a
+            href
+            routerLink="/user/{{id}}/event"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Events'==selectedCategory" (click)="Category('Events')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i
+            ><span>Events</span></a
+          >
+          <a
+            href
+            routerLink="/user/{{id}}/order"
+            class="list-group-item list-group-item-action py-2 ripple" [class.active]="'Orders'==selectedCategory" (click)="Category('Orders')"
+            ><i class="fas fa-chart-line fa-fw me-3"></i><span>Orders</span></a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  </header>
+</div>

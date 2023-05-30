@@ -1,0 +1,30 @@
+<div>
+  <h3>Planners</h3>
+  <hr class="line">
+</div>
+
+<div class="content">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Business name</th>
+        <th scope="col">Location</th>
+        <th scope="col">Active/Inactive</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planner of getPlanner()">
+        <td>{{planner.email}}</td>
+        <td>{{planner.contact}}</td>
+        <td>{{getBusinessName(planner.registerId)}}</td>
+        <td>{{getCityName()}}</td>
+        <td>
+          <mat-slide-toggle (change)="plannerActive($event.checked,planner)" [checked]="planner.active" color="warn"></mat-slide-toggle>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,25 @@
+<div class="login">
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <div class="container" [formGroup]="loginform">
+      <h1 class="text">Login</h1>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input style="margin: 0.8rem 0px;" type="email" id="email" placeholder="Enter Email" name="email" [(ngModel)]="email" formControlName="vemail" [ngClass]="{'is-invalid':(submitted && validate['vemail'].errors) || (validate['vemail'].touched && validate['vemail'].errors)}">
+      <div *ngIf="submitted || validate['vemail'].touched && validate['vemail'].errors" class="invalid-feedback">
+          <div *ngIf="validate['vemail'].errors?.['required']">Email Required !</div>
+          <div *ngIf="validate['vemail'].errors?.['email']">Email is not valid !</div>
+      </div>
+      <label for="psw"><b>Password</b></label>
+      <input style="margin: 0.8rem 0px;" type="password" placeholder="Enter Password" name="psw" [(ngModel)]="password" formControlName="vpassword" [ngClass]="{'is-invalid':(submitted && validate['vpassword'].errors) || (validate['vpassword'].touched && validate['vpassword'].errors)}">
+      <div *ngIf="submitted || validate['vpassword'].touched && validate['vpassword'].errors" class="invalid-feedback">
+        <div *ngIf="validate['vpassword'].errors?.['required']">Password Required !</div>
+    </div>
+      <hr>
+      <button type="submit" class="btn btn-primary">login</button>
+      <div class="hello">
+        <p>Create account?<a href routerLink="/home/registration/signup" routerLinkActive="router-link-active" class="signUp">SignUp</a>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

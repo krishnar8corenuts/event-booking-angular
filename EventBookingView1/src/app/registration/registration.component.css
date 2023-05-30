@@ -1,0 +1,42 @@
+.registration
+{
+  width: 26rem;
+  height: 38rem;
+  background: #ffffff61;
+}
+
+.btn{
+  margin-top: 15px;
+}
+
+.form-group{
+  margin: 25px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.cpass{
+  color: red;
+}
+
+label{
+  font-weight: bold;
+}
+
+p{
+  margin-top: 8px;
+}
+p>a{
+  color: blue;
+}
+table
+{
+  width: 100%;
+  text-align: center;
+}
+table>tr>td{
+  width: 50%;
+  background-color: rgb(235, 126, 126);
+}

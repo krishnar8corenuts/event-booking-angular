@@ -1,0 +1,38 @@
+<div>
+  <h3>Bookings</h3>
+  <hr class="line">
+</div>
+
+<div class="content">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Planner Email</th>
+        <th scope="col">User Email</th>
+        <th scope="col">Business Name</th>
+        <th scope="col">Service</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Status</th>
+        <th scope="col">Process</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of getBookings()">
+        <td>{{getBusiness(getserviceBusiness(booking.serviceBusinessId).businessId).email}}</td>
+        <td>{{getRegister(booking.registerId).email}}</td>
+        <td>{{getbusinessName(getserviceBusiness(booking.serviceBusinessId).businessId).businessName}}</td>
+        <td>{{getServiceName(getserviceBusiness(booking.serviceBusinessId).serviceId).serviceName}}</td>
+        <td>{{getserviceBusiness(booking.serviceBusinessId).cost | currency:'INR'}}</td>
+        <td *ngIf="booking.status=='Pending'" style="color: orange;">{{booking.status}}</td>
+        <td *ngIf="booking.status=='Confirm'" style="color: green;">{{booking.status}}</td>
+        <td *ngIf="booking.status=='Rejected'" style="color: red;">{{booking.status}}</td>
+        <td *ngIf="booking.status=='Pending'">
+          <mat-icon (click)="status('Rejected',booking)" style="color: red;">close</mat-icon>
+        </td>
+        <td *ngIf="booking.status=='Confirm'">--</td>
+        <td *ngIf="booking.status=='Rejected'" >{{booking.reason}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,36 @@
+h3{
+  color: #a52a2a;
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  left: -60px;
+  font-weight: 500;
+}
+.line{
+  position: relative;
+  top: 25px;
+  left: -60px;
+  font-weight: 500;
+  color:#a52a2a;
+}
+.content{
+  position: relative;
+  top: 50px;
+  left: -60px;
+}
+.fa{
+  font-size: 20px;
+}
+.fa-check{
+  color: green;
+}
+.fa-times{
+  color: red;
+}
+.table{
+  text-align: center;
+}
+
+th{
+  color: #a52a2a;
+}

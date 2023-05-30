@@ -1,0 +1,91 @@
+<div *ngIf=!show>
+  <div class="addservice">
+    <button type="button" class="btn btn-success" (click)="addServiceBusiness()"><i class="fa fa-plus fa-lg" aria-hidden="true"></i> Add Service</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Service</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Facilities</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let serviceBusiness of getServiceBusiness()">
+        <td>{{getServiceName(serviceBusiness.serviceId)}}</td>
+        <td>{{serviceBusiness.cost | currency:'INR'}}</td>
+
+        <td class="facility">
+          <div class="row">
+            <div class="col-sm-4" *ngFor="let f of getFacilities(serviceBusiness.serviceBusinessId)">
+                {{f.facilityName}}
+            </div>
+
+          </div>
+        </td>
+        <td>
+          <button mat-icon-button aria-label="Example icon button with a home icon" (click)="editServiceBusiness(serviceBusiness)">
+            <mat-icon class="edit">edit</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button mat-icon-button aria-label="Example icon button with a home icon" (click)="deleteServiceBusiness(serviceBusiness)">
+            <mat-icon class="delete">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf=show class="service">
+  <mat-dialog-content>
+    <form [formGroup]="serviceForm"  (ngSubmit)="saveServiceBusiness()">
+      <h2>{{mode=="save"?"Add Service":"Update Service"}}</h2>
+      <div class="row mt-12">
+        <mat-form-field appearance="fill" class="col-md-12">
+          <mat-label>{{mode=="save"?"Select Service":getServiceName(serviceId)}}</mat-label>
+          <mat-select formControlName="serviceId" [(ngModel)]="serviceId">
+            <mat-option *ngFor="let service of getService()" value={{service.serviceId}}>{{service.serviceName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row mt-12">
+        <mat-form-field appearance="fill" class="col-md-12">
+          <mat-label>Cost</mat-label>
+          <input matInput type="text"  formControlName="cost"  >
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let facility of facilities" [selectable]="selectable"
+                   [removable]="removable" (removed)="remove(facility)">
+            {{facility.facilityName}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Facility"
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+
+      <div class="row mt-12" hidden>
+        <mat-form-field appearance="fill" class="col-md-12">
+          <input matInput type="text"  formControlName="businessId">
+        </mat-form-field>
+      </div>
+      <div class="row mt-12">
+        <mat-dialog-actions align="end" class="col-md-12">
+          <button mat-button mat-dialog-close (click)="openDialog('save')">Cancel</button>
+          <button mat-button  type="submit">{{mode=="save"?"Save":"Save"}}</button>
+        </mat-dialog-actions>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>
+
+

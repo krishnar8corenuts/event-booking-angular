@@ -1,0 +1,80 @@
+.table,.service{
+  position: relative;
+  top: 100px;
+  width: 110%;
+}
+
+th{
+  color: #a52a2a;
+}
+
+.btn-success{
+  position: relative;
+  top: 30px;
+  left: 95%;
+}
+
+.btn{
+  text-align: center;
+}
+
+.btn-success{
+
+  background-color: white;
+  border-color: #a52a2a;
+  color: #a52a2a;
+}
+
+.fa-plus{
+  font-size: 19px;
+}
+
+.btn-success:hover{
+  background-color: #a52a2a;
+  border-color: #a52a2a;
+  color: white;
+}
+
+.service{
+  box-shadow: 10px 20px 20px 10px rgb(80, 100, 77);
+  width: 80%;
+}
+
+h2{
+  color: #a52a2a;
+  text-align: center;
+}
+
+.mat-button:hover{
+  background-color: #a52a2a;
+  color: white;
+}
+
+input{
+  border-bottom: #a52a2a;
+}
+
+.edit{
+  color: green;
+}
+
+.delete{
+  color:red;
+}
+
+.table{
+  text-align: center;
+}
+
+.example-chip-list{
+  width: 100%;
+}
+
+.facility{
+  text-align: center;
+  width: 33%;
+}
+.col-sm-4
+{
+  margin-bottom: 3px;
+}

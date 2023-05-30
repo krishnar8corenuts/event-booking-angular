@@ -1,0 +1,67 @@
+ <section *ngIf="show" class="event">
+  <mat-card class="matform">
+    <form  (ngSubmit)="saveBooking()">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="inputAddress">Event Date</label>
+        <input type="date" class="form-control" id="inputAddress" name="eventDate" [(ngModel)]="booking.eventDate" [min]="getMinDate()">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputCity">Contact Number</label>
+          <input type="text" class="form-control" id="inputCity"  name=" contactNo" [(ngModel)]="booking.contactNo">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputCity">Venue Address</label>
+          <textarea  class="form-control" id="inputCity"  name="venue" [(ngModel)]="booking.venue"></textarea>
+        </div>
+    </div>
+      <button type="submit" id="button" class="btn btn-primary" mat-button>Book</button>
+     <button type="button" id="button" class="btn btn-info" mat-button (click)="openBooking()">Cancel</button>
+     </form>
+  </mat-card>
+</section>
+
+
+<section *ngIf="!(show)">
+  <div class="row">
+    <div class="col-md-4" style="padding: 1rem;" *ngFor="let sb of getServiceBusiness()">
+      <mat-card class="example-card">
+        <div class="item-single">
+          <div class="servi_image">
+            <mat-card-header class="header">
+              <mat-card-title style="text-align: center;">{{getServiceName(sb.serviceId)}}</mat-card-title>
+              <mat-card-subtitle style="text-align: center; font-size: larger;" >{{getBusinessName(sb.businessId).businessName}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{sb.cost | currency:'INR'}}</p>
+              <p class="para"> <i class="fa fa-map-marker" aria-hidden="true"></i>  {{getCityName(getBusinessName(sb.businessId).cityId)}} </p>
+
+            </mat-card-content>
+            <div class="content">
+              <h4>Facilities</h4>
+              <div class="p">
+                <div class="facility">
+                  <div  *ngFor="let f of getFacilities(sb.serviceBusinessId)">
+                    <button class="infobtn">
+                      {{f.facilityName}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
+
+        </div>
+        <mat-card-actions class="book">
+          <button mat-button class="btnbook" (click)="openBooking(sb.serviceBusinessId)">Book</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+

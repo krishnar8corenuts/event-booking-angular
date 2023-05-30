@@ -1,0 +1,47 @@
+<div class="nav">
+  <h2 class="post">Post</h2>
+  <button mat-icon-button aria-label="Example icon button with a home icon" (click)="upload()">
+     <mat-icon class="add">add</mat-icon>
+   </button>
+</div>
+
+<div *ngIf=!show>
+    <div class="row">
+      <div class="col-md-4 coll" *ngFor="let post of getPost()">
+        <div class="cccc">
+          <div class="imagepost">
+            <img src="{{post.imagePath}}" alt="" height="250px" width="200px">
+           </div>
+           <div class="desc">
+            {{post.description}}
+           </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div *ngIf=show class="upload">
+  <mat-dialog-content>
+    <form (ngSubmit)="uploadImage()"  enctype="multipart/form-data">
+      <h2 class="h2">{{mode=="save"?"Add Post":"Update Post"}}</h2>
+      <div class="row mt-12 w-100">
+        <div class="mb-3">
+          <input class="form-control" type="file" id="formFileMultiple" name="file" (change)="onFileChange($event)">
+        </div>
+      </div>
+      <div class="row mt-12 w-100">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="description" [(ngModel)]="post.description"></textarea>
+          <label for="floatingTextarea2">Description</label>
+        </div>
+      </div>
+      <div class="row mt-12 w-100">
+        <mat-dialog-actions align="end" class="col-md-12">
+          <button mat-button mat-dialog-close (click)="openDialog()">Cancel</button>
+          <button mat-button  type="submit">{{mode=="save"?"Save":"Edit"}}</button>
+        </mat-dialog-actions>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

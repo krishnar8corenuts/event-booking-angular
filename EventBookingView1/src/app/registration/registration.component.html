@@ -1,0 +1,114 @@
+<!-- Registration for Event Planner -->
+<div class="bootstrap-wrapper" *ngIf="(role=='planner')">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-card class="registration">
+          <p class="text-center">
+            <span><h1>Registration</h1></span>
+          </p>
+          <table>
+            <tr>
+              <table>
+                <tr>
+                  <td [ngStyle]="{'background-color': rolePlanner ? 'rgb(235, 126, 126)': 'brown'}" (click)="getRoleName('user')">User</td>
+                  <td [ngStyle]="{'background-color': rolePlanner ? 'brown' : 'rgb(235, 126, 126)'}" (click)="getRoleName('planner')">Event Planner</td>
+                </tr>
+              </table>
+
+            </tr>
+          </table>
+          <form [formGroup]="registrationForm" (ngSubmit)="saveRegistration()">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="registration.email" name="email" formControlName="vemail" [ngClass]="{'is-invalid':(submitted && validate.vemail.errors) || (validate.vemail.touched && validate.vemail.errors)}">
+                  <div *ngIf="submitted || validate.vemail.touched && validate.vemail.errors" class="invalid-feedback">
+                      <div *ngIf="validate.vemail.errors?.required">Email Required !</div>
+                      <div *ngIf="validate.vemail.errors?.email">Email is not valid !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="registration.password" name="password" formControlName="vpassword" [ngClass]="{'is-invalid':(submitted && validate.vpassword.errors) || (validate.vpassword.touched && validate.vpassword.errors)}">
+                  <div *ngIf="submitted || validate.vpassword.touched && validate.vpassword.errors" class="invalid-feedback">
+                      <div *ngIf="validate.vpassword.errors?.required">Password Required !</div>
+                      <div *ngIf="validate.vpassword.errors?.pattern">Password must contains atleast capitals,small lettrs,digit and special symbol and length must be 8 or more !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confrimpassword">Confirm Password</label>
+                  <input type="password" class="form-control" id="confrimpassword" placeholder="Re-enter Password" [(ngModel)]="confimPassword" name="confrimpassword" formControlName="vconfrimpassword" [ngClass]="{'is-invalid':(submitted && validate.vconfrimpassword.errors) || (validate.vconfrimpassword.touched && validate.vconfrimpassword.errors)}">
+                  <div *ngIf="submitted || validate.vconfrimpassword.touched && validate.vconfrimpassword.errors" class="invalid-feedback">
+                      <div *ngIf="validate.vconfrimpassword.errors?.required">Confirm Password Required !</div>
+                  </div>
+                  <div *ngIf="passwordmatch" class="cpass">Confirm Password should be same as Password !</div>
+                </div>
+                <div class="form-group">
+                  <label for="confrimpassword">Contact Number</label>
+                  <input type="text" class="form-control" id="contact" placeholder="Contact Number" [(ngModel)]="registration.contact" name="contact" formControlName="vcontact" [ngClass]="{'is-invalid':(submitted && validate.vcontact.errors) || (validate.vcontact.touched && validate.vcontact.errors)}">
+                  <div *ngIf="submitted || validate.vcontact.touched && validate.vcontact.errors" class="invalid-feedback">
+                      <div *ngIf="validate.vcontact.errors?.required">Contact Required !</div>
+                      <div *ngIf="validate.vcontact.errors?.pattern">Contact Number should be 10 digit !</div>
+                    </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-success btn">Send Request</button>
+                </div>
+                <p class="text-center">Already Have Account?<a routerLink="/home/login">Login</a></p>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Registration for User -->
+<div class="bootstrap-wrapper" *ngIf="(role=='user')">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-card class="registration">
+          <p class="text-center">
+            <span><h1>Registration</h1></span>
+          </p>
+          <table>
+            <tr>
+              <td (click)="getRoleName('user')">User</td>
+              <td (click)="getRoleName('planner')">Event Planner</td>
+            </tr>
+          </table>
+          <form [formGroup]="userregistrationForm" (ngSubmit)="saveUserRegistration()">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="registration.email" name="email" formControlName="vuemail" [ngClass]="{'is-invalid':(submittedUser && userValidate.vuemail.errors) || (userValidate.vuemail.touched && userValidate.vuemail.errors)}">
+                  <div *ngIf="submittedUser || userValidate.vuemail.touched && validate.vuemail.errors" class="invalid-feedback">
+                      <div *ngIf="validate.vemail.errors?.required">Email Required !</div>
+                      <div *ngIf="validate.vemail.errors?.email">Email is not valid !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter Password" [(ngModel)]="registration.password" name="password" formControlName="vupassword" [ngClass]="{'is-invalid':(submittedUser && userValidate.vupassword.errors) || (userValidate.vupassword.touched && userValidate.vupassword.errors)}">
+                  <div *ngIf="submittedUser || userValidate.vupassword.touched && userValidate.vupassword.errors" class="invalid-feedback">
+                      <div *ngIf="userValidate.vupassword.errors?.required">Password Required !</div>
+                      <div *ngIf="userValidate.vupassword.errors?.pattern">Password must contains atleast capitals,small lettrs,digit and special symbol and length must be 8 or more !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confrimpassword">Confirm Password</label>
+                  <input type="password" class="form-control" id="confrimpassword" placeholder="Re-enter Password" [(ngModel)]="userconfimPassword" name="confrimpassword" formControlName="vuconfrimpassword" [ngClass]="{'is-invalid':(submittedUser && userValidate.vuconfrimpassword.errors) || (userValidate.vuconfrimpassword.touched && userValidate.vuconfrimpassword.errors)}">
+                  <div *ngIf="submittedUser || userValidate.vuconfrimpassword.touched && userValidate.vuconfrimpassword.errors" class="invalid-feedback">
+                      <div *ngIf="userValidate.vuconfrimpassword.errors?.required">Confirm Password Required !</div>
+                  </div>
+                  <div *ngIf="userpasswordmatch" class="cpass">Confirm Password should be same as Password !</div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-success btn">Register</button>
+                </div>
+                <p class="text-center">Already Have Account?<a routerLink="/home/login">Login</a></p>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  </div>
